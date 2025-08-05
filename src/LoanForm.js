@@ -11,6 +11,16 @@ function LoanForm() {
     salaryRange: "",
   });
 
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    alert("hello wafaa");
+  }
+
+  const btnIsDisabled =
+    loanInputs.name === "" ||
+    loanInputs.phoneNumber === "" ||
+    loanInputs.age === "";
+
   return (
     <div className="flex">
       <form id="loan-form" className="flex" style={{ flexDirection: "column" }}>
@@ -62,7 +72,12 @@ function LoanForm() {
           <option>above 2000</option>
         </select>
 
-        <button id="submit-loan-btn" type="submit">
+        <button
+          className={btnIsDisabled ? "disabled" : ""}
+          onClick={handleFormSubmit}
+          disabled={btnIsDisabled}
+          id="submit-loan-btn"
+        >
           Submit
         </button>
       </form>

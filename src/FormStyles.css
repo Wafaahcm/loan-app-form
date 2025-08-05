@@ -23,10 +23,10 @@
 }
 
 #loan-form {
-  background: rgba(183, 172, 247, 0.877);
+  background: rgb(169, 155, 248);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0px 10px 10px rgba(100, 50, 100, 0.8);
+  box-shadow: 0px 8px 28px rgba(104, 3, 58, 0.8);
   width: 50%;
 }
 
@@ -46,11 +46,16 @@ select {
   font-size: 20px;
   padding: 10px;
   border-radius: 5px;
-  background: rgb(236, 61, 166);
+  background: #e60278;
+  color: wheat;
 }
 
 hr {
   width: 100%;
   box-shadow: 0px 10px 10px rgba(10, 0, 0, 0.2);
   background-color: coral;
+}
+
+.disabled {
+  background: gray !important;
 }
