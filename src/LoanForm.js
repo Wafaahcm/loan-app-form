@@ -1,7 +1,16 @@
+import { useState } from "react";
 import "./FormStyles.css";
 import Modal from "./Modal";
 
 function LoanForm() {
+  const [loanInputs, setLoanInputs] = useState({
+    name: "",
+    phoneNumber: "",
+    age: "",
+    isEmployee: false,
+    salaryRange: "",
+  });
+
   return (
     <div className="flex">
       <form id="loan-form" className="flex" style={{ flexDirection: "column" }}>
@@ -9,19 +18,45 @@ function LoanForm() {
         <hr />
 
         <label>Name:</label>
-        <input />
+        <input
+          value={loanInputs.name}
+          onChange={(event) => {
+            setLoanInputs({ ...loanInputs, name: event.target.value });
+          }}
+        />
 
         <label>Phone Number:</label>
-        <input />
+        <input
+          value={loanInputs.phoneNumber}
+          onChange={(event) => {
+            setLoanInputs({ ...loanInputs, phoneNumber: event.target.value });
+          }}
+        />
 
         <label>Age</label>
-        <input />
+        <input
+          value={loanInputs.age}
+          onChange={(event) => {
+            setLoanInputs({ ...loanInputs, age: event.target.value });
+          }}
+        />
 
         <label>Are you an employee?</label>
-        <input type="checkbox" />
+        <input
+          checked={loanInputs.isEmployee}
+          onChange={(event) => {
+            setLoanInputs({ ...loanInputs, isEmployee: event.target.checked });
+          }}
+          type="checkbox"
+        />
 
         <label>Salary:</label>
-        <select>
+        <select
+          value={loanInputs.salaryRange}
+          onChange={(event) => {
+            setLoanInputs({ ...loanInputs, salaryRange: event.target.value });
+          }}
+        >
           <option>less than 500$</option>
           <option>between 500$ and 2000</option>
           <option>above 2000</option>
@@ -32,7 +67,7 @@ function LoanForm() {
         </button>
       </form>
 
-      <Modal />
+      {/* <Modal /> */}
     </div>
   );
 }
