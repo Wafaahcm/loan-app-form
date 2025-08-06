@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./FormStyles.css";
 import Modal from "./Modal";
+import MyComponent from "./MyComponent";
 
 function LoanForm() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -36,34 +37,40 @@ function LoanForm() {
     }
   }
 
+  function handlePhoneNumberChange(value) {
+    setLoanInputs({ ...loanInputs, phoneNumber: value });
+  }
+
+  function handleNameInputChange(value) {
+    setLoanInputs({ ...loanInputs, name: value });
+  }
+
+  function handleAgeInputChange(value) {
+    setLoanInputs({ ...loanInputs, age: value });
+  }
+
   return (
     <div onClick={handleDivClick} className="flex">
       <form id="loan-form" className="flex" style={{ flexDirection: "column" }}>
         <h1>Requesting a Loan</h1>
         <hr />
 
-        <label>Name:</label>
-        <input
+        <MyComponent
+          inputName="Name"
           value={loanInputs.name}
-          onChange={(event) => {
-            setLoanInputs({ ...loanInputs, name: event.target.value });
-          }}
+          handleChange={handleNameInputChange}
         />
 
-        <label>Phone Number:</label>
-        <input
+        <MyComponent
+          inputName="Phone Number"
           value={loanInputs.phoneNumber}
-          onChange={(event) => {
-            setLoanInputs({ ...loanInputs, phoneNumber: event.target.value });
-          }}
+          handleChange={handlePhoneNumberChange}
         />
 
-        <label>Age</label>
-        <input
+        <MyComponent
+          inputName="Age:"
           value={loanInputs.age}
-          onChange={(event) => {
-            setLoanInputs({ ...loanInputs, age: event.target.value });
-          }}
+          handleChange={handleAgeInputChange}
         />
 
         <label>Are you an employee?</label>
